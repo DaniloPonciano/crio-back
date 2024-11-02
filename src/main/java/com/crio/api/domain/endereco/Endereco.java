@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
+import java.util.function.IntPredicate;
 
 @Table(name = "endereco")
 @Entity
@@ -22,4 +23,11 @@ public class Endereco {
     String city;
     @Column(length = 2)
     String uf;
+    public IntPredicate getCidade() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCidade'");
+    }
+    public Endereco(EnderecoResponseDTO data) {
+        //TODO Auto-generated constructor stub
+    }
 }
