@@ -6,7 +6,7 @@ import com.crio.api.domain.usuario.Usuario;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public record EventoReponseDTO(
+public record EventoResponseDTO(
         UUID id,
         String titulo,
         String descricao,

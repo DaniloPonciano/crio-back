@@ -45,7 +45,7 @@ public class EnderecoRepositoryTests {
     @Test
     @DisplayName("Should not get Endereco from DB when Endereco not exists")
     void findEnderecoByNameDocumentCase2() {
-        String name = "CategoriaInexistente"; // nome da categoria que estamos procurando
+        String name = "EndereçoInexistente"; // nome da categoria que estamos procurando
 
         Optional<Endereco> result = this.enderecoRepository.findByCity(name);
 
@@ -53,8 +53,8 @@ public class EnderecoRepositoryTests {
     }
 
     private Endereco createEndereco(EnderecoResponseDTO data) {
-        Endereco category = new Endereco(data);
-        this.entityManager.persist(category);
-        return category;
+        Endereco endereco = new Endereco(data);
+        this.entityManager.persist(endereco);
+        return endereco;
     }
 }

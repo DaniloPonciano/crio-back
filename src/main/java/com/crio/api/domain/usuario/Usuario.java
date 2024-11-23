@@ -20,11 +20,14 @@ public class Usuario {
     @GeneratedValue
     private UUID id;
 
-    private String nomeCompleto;
+    private String fullName;
     private String email;
     private String senha;
     private int tipo;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+     public Usuario(UsuarioResponseDTO data) {
+        //TODO Auto-generated constructor stub
+    }
 }

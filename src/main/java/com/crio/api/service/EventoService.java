@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -22,7 +23,7 @@ public class EventoService {
     public List<Evento> findByIntervaloData(LocalDateTime inicio, LocalDateTime fim) {
         return eventoRepository.findByIntervaloData(inicio, fim);
     }
-    public List<Evento> findByLocal(String local) {
+    public Optional<Evento> findByLocal(String local) {
         return eventoRepository.findByLocal(local);
     }
 

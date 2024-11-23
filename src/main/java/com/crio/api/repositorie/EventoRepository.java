@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 @Repository
 public interface EventoRepository extends
@@ -23,12 +24,12 @@ public interface EventoRepository extends
     List<Evento> findByIntervaloData(LocalDateTime inicio, LocalDateTime fim);
     //ok consulta por local
     @Query("SELECT e FROM Evento e WHERE e.local = :local")
-    List<Evento> findByLocal(String local);
+    List<Evento> findByLocalContainig(String local);
     //consulta por local e intervalo de data
     @Query("SELECT e FROM Evento e WHERE e.local = :local AND e.inicio BETWEEN :inicio AND :fim")
     List<Evento> findByLocalAndIntervaloData(String local, LocalDateTime inicio, LocalDateTime fim);
 
-
+    Optional<Evento> findByLocal (String local);
 
 
 }

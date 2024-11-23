@@ -2,8 +2,10 @@ package com.crio.api.service;
 
 import com.crio.api.domain.usuario.Usuario;
 import com.crio.api.domain.usuario.UsuarioRequestDTO;
+import com.crio.api.domain.usuario.UsuarioResponseDTO;
 import com.crio.api.repositorie.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -20,7 +22,7 @@ public class UsuarioService {
         //cria um usuario vazio
         Usuario newUsuario = new Usuario();
         //preenche os dados do usuario
-        newUsuario.setNomeCompleto(data.nomeCompleto());
+        newUsuario.setFullName(data.fullName());
         newUsuario.setEmail(data.email());
         newUsuario.setSenha(data.senha());
         newUsuario.setTipo(data.tipo());
@@ -39,7 +41,7 @@ public class UsuarioService {
 
     public Usuario updateUser(UUID id, UsuarioRequestDTO usuarioRequestDTO) {
         Usuario updateUsuario = getUserById(id);
-        updateUsuario.setNomeCompleto(usuarioRequestDTO.nomeCompleto());
+        updateUsuario.setFullName(usuarioRequestDTO.fullName());
         updateUsuario.setEmail(usuarioRequestDTO.email());
         updateUsuario.setSenha(usuarioRequestDTO.senha());
         updateUsuario.setTipo(usuarioRequestDTO.tipo());
@@ -50,5 +52,15 @@ public class UsuarioService {
     public void deleteUser(UUID id){
         Usuario usuario = getUserById(id);
         usuarioRepository.delete(usuario);
+    }
+
+    public Object findAllPaged(Pageable any) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findAllPaged'");
+    }
+
+    public Object insert(UsuarioResponseDTO any) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'insert'");
     }
 }

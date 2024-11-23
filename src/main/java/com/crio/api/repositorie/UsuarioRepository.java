@@ -26,7 +26,7 @@ public interface UsuarioRepository extends
     @Query("UPDATE Usuario u SET u.nomeCompleto=:nomeCompleto, "+
     "u.email = :email, u.senha = :senha, u.tipo = :tipo, "+
     "u.updatedAt = :updatedAt WHERE u.id = :id")
-    void updateUsuario(UUID id,String nomeCompleto, String email, String senha,
+    void updateUsuario(UUID id,String fullName, String email, String senha,
                 int tipo, LocalDateTime updatedAt);
     //deletar usuario
     @Query("DELETE FROM Usuario u WHERE u.id = :id")
@@ -37,4 +37,6 @@ public interface UsuarioRepository extends
 
     @Query("SELECT u FROM Usuario u WHERE u.tipo = :tipo")
     List<Usuario> findByTipo(int tipo);
+    Optional<Usuario> findByFullName(String fullName);
+
 }

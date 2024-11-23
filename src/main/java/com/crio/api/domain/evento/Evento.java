@@ -1,6 +1,7 @@
 package com.crio.api.domain.evento;
 
 import com.crio.api.domain.endereco.Endereco;
+import com.crio.api.domain.evento.EventoResponseDTO;
 import com.crio.api.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,5 +37,9 @@ public class Evento {
     @OneToOne
     @JoinColumn(name="endereco_id")
     private Endereco endereco;
+
+    public Evento(EventoResponseDTO data) {
+        //TODO Auto-generated constructor stub
+    }
 
 }
