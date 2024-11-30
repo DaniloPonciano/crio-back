@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -21,6 +22,7 @@ import com.crio.api.domain.usuario.UsuarioResponseDTO;
 import com.crio.api.service.UsuarioService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@WebMvcTest
 public class UsuarioControllerTest {
     
     @Autowired
@@ -36,7 +38,7 @@ public class UsuarioControllerTest {
 
     @BeforeEach
     void setUp() {
-        usuarioResponseDTO = new UsuarioResponseDTO(1L, "Test Category");
+        usuarioResponseDTO = new UsuarioResponseDTO('9a3d7bf4-d855-4844-b263-4e799aeaa1df', "Test Usuario");
     }
 
     @Test
@@ -59,7 +61,7 @@ public class UsuarioControllerTest {
                 
                     @Test
     void findByIdShouldReturnCategory() throws Exception {
-        when(usuarioService.findById(1L)).thenReturn(usuarioResponseDTO);
+        when(usuarioService.findById(9a3d7bf4-d855-4844-b263-4e799aeaa1df)).thenReturn(usuarioResponseDTO);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/categories/1")
                         .accept(MediaType.APPLICATION_JSON))
@@ -96,4 +98,5 @@ public class UsuarioControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.delete("/categories/1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
+    }
 }

@@ -16,4 +16,8 @@ public record UsuarioResponseDTO(
     public UsuarioResponseDTO(long l, String string) {
         //TODO Auto-generated constructor stub
     }
+
+    public UsuarioResponseDTO(Usuario entity) {
+        //TODO Auto-generated constructor stub
+    }
 }
